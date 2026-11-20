@@ -37,12 +37,4 @@ DELETE FROM products WHERE name = 'Laptop Lenovo';
 ```
 Zobacz w terminalu Pythona `INSERT`, `UPDATE` i `DELETE`.
 
-## Troubleshooting
-- `port is already allocated`: port 5432, 9092 lub 8083 jest zajęty przez inny proces.
-- `connection refused` (Python): poczekaj aż Kafka wystartuje, sprawdź `docker compose ps` oraz `docker compose logs kafka`.
-- Konektor nie jest `RUNNING`: `docker compose logs connect` i `curl.exe http://localhost:8083/connectors/shop-connector/status`.
-- Jeśli po zmianie `init.sql` chcesz całkowicie odtworzyć bazę i stan: `docker compose down -v` i `docker compose up -d` (usuwa dane demo).
-- Używamy uproszczonego formatu JSON (bez schema envelope), przy czym `NUMERIC` może mieć reprezentację zależną od ustawień konektora; w demo wypisujemy surowe dane.
-- Uwaga: obrazy i hasła przeznaczone do lokalnego demo, nie do produkcji.
-
 Źródła: https://debezium.io/documentation/reference/stable/connectors/postgresql.html oraz https://debezium.io/documentation/reference/stable/architecture.html
